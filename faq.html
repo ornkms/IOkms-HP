@@ -211,45 +211,68 @@ h2{
 }
 
 /* =========================
-   ABOUT
+   TERMS
 ========================= */
 
-.card{
+.accordion{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.accordion details{
   background:var(--card);
   border-radius:16px;
-  padding:24px;
+  overflow:hidden;
+  transition:.3s;
 }
 
-.about{
-  display:flex;
-  align-items:center;
-  gap:24px;
-  max-width:800px;
-  margin:auto;
+.accordion details:hover{
+  transform:translateY(-2px);
 }
 
-.about img{
-  width:120px;
-  height:120px;
-  object-fit:cover;
-  border-radius:50%;
-  flex-shrink:0;
-}
-
-.about .name{
-  font-size:24px;
+.accordion summary{
+  list-style:none;
+  cursor:pointer;
+  padding:20px 24px;
   font-weight:bold;
+  font-size:18px;
   color:var(--text);
+  position:relative;
 }
 
-@media(max-width:768px){
-
-  .about{
-    flex-direction:column;
-    text-align:center;
-  }
-
+.accordion summary::-webkit-details-marker{
+  display:none;
 }
+
+.accordion summary::after{
+  content:"+";
+  position:absolute;
+  right:24px;
+  color:var(--accent);
+  font-size:24px;
+  transition:.3s;
+}
+
+.accordion details[open] summary::after{
+  transform:rotate(45deg);
+}
+
+.accordion ul{
+  margin:0;
+  padding:0 24px 24px 45px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.accordion li{
+  margin-bottom:8px;
+}
+
+.warning{
+  color:#ff8a8a;
+}
+
 /* =========================
    FOOTER
 ========================= */
@@ -260,7 +283,6 @@ footer{
   color:var(--muted);
   font-size:14px;
 }
-
 /* =================
    FADE IN
 ================= */
@@ -304,32 +326,65 @@ footer{
 
 </header>
 
-<!-- HOME -->
+<!-- FAQ -->
+<section id="faq">
 
+  <h2 class="fade-in">
+    FAQ
+  </h2>
 
-<section id="home">
+  <div class="accordion fade-in">
 
-  <h2 class="fade-in">About</h2>
+    <details>
+      <summary>修正回数は？</summary>
+      <ul>
+        <li>2回まで無料です。</li>
+        <li>3回目以降は追加料金が発生します。</li>
+      </ul>
+    </details>
 
-  <div class="card about fade-in">
-    <img src="icon.png" alt="icon">
+    <details>
+      <summary>納期はどれくらいですか？</summary>
+      <ul>
+        <li>通常2週間〜1ヶ月程度です。</li>
+        <li>内容や混雑状況によって変動します。</li>
+      </ul>
+    </details>
 
-    <div>
-      <span class="name">記憶　Web Creator / Mix Engineer</span><br>
-      ネットクリエイター向けにHP制作を行っています。<br>
-      歌い手・配信者・ボカロP・絵師など幅広く対応可能です。
-    </div>
+    <details>
+      <summary>支払い方法は？</summary>
+      <ul>
+        <li>銀行振込のみ対応しています。</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>サーバー・ドメイン契約もお願いできますか？</summary>
+      <ul>
+        <li>基本的にはご自身での管理をお願いしています。</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>依頼前の相談は可能ですか？</summary>
+      <ul>
+        <li>可能です。</li>
+        <li>ただしヒアリングシート提出後に詳細なご相談を承ります。</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>完成後の修正は可能ですか？</summary>
+      <ul>
+        <li>納品後の修正は別途ご相談ください。</li>
+      </ul>
+    </details>
+
   </div>
 </section>
-
 <footer>
   © 2026 倫理
 </footer>
-<footer>
-  © 2026 倫理
-</footer>
-
-
 <script>
 
 const targets = document.querySelectorAll('.fade-in');
@@ -347,8 +402,5 @@ targets.forEach(target=>{
 });
 
 </script>
-
-
-</body>
 </body>
 </html>

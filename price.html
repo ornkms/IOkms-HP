@@ -211,44 +211,32 @@ h2{
 }
 
 /* =========================
-   ABOUT
+   PRICE
 ========================= */
 
 .card{
   background:var(--card);
-  border-radius:16px;
   padding:24px;
-}
-
-.about{
-  display:flex;
-  align-items:center;
-  gap:24px;
+  border-radius:16px;
+  text-align:center;
   max-width:800px;
   margin:auto;
 }
 
-.about img{
-  width:120px;
-  height:120px;
-  object-fit:cover;
-  border-radius:50%;
-  flex-shrink:0;
+.card img{
+  width:100%;
+  max-width:600px;
+  height:auto;
+  display:block;
+  margin:auto;
+  border-radius:12px;
 }
 
-.about .name{
-  font-size:24px;
-  font-weight:bold;
-  color:var(--text);
-}
-
-@media(max-width:768px){
-
-  .about{
-    flex-direction:column;
-    text-align:center;
-  }
-
+.small{
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+  margin-top:20px;
 }
 /* =========================
    FOOTER
@@ -303,32 +291,24 @@ footer{
   </nav>
 
 </header>
+<section id="price">
 
-<!-- HOME -->
+  <h2 class="fade-in">
+    Price
+  </h2>
 
-
-<section id="home">
-
-  <h2 class="fade-in">About</h2>
-
-  <div class="card about fade-in">
-    <img src="icon.png" alt="icon">
-
-    <div>
-      <span class="name">記憶　Web Creator / Mix Engineer</span><br>
-      ネットクリエイター向けにHP制作を行っています。<br>
-      歌い手・配信者・ボカロP・絵師など幅広く対応可能です。
-    </div>
+  <div class="card fade-in">
+    <img src="price.png" alt="料金表画像">
   </div>
+
+  <p class="small">
+    ※内容・機能により料金は変動します
+  </p>
+
 </section>
-
 <footer>
   © 2026 倫理
 </footer>
-<footer>
-  © 2026 倫理
-</footer>
-
 
 <script>
 
@@ -347,8 +327,5 @@ targets.forEach(target=>{
 });
 
 </script>
-
-
-</body>
 </body>
 </html>

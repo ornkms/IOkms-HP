@@ -211,44 +211,41 @@ h2{
 }
 
 /* =========================
-   ABOUT
+   CONTACT
 ========================= */
 
-.card{
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.contact-btn{
   background:var(--card);
   border-radius:16px;
   padding:24px;
-}
-
-.about{
+  text-decoration:none;
+  text-align:center;
+  transition:.3s;
   display:flex;
-  align-items:center;
-  gap:24px;
-  max-width:800px;
-  margin:auto;
+  flex-direction:column;
+  gap:8px;
 }
 
-.about img{
-  width:120px;
-  height:120px;
-  object-fit:cover;
-  border-radius:50%;
-  flex-shrink:0;
+.contact-btn:hover{
+  transform:translateY(-5px);
+  background:#182247;
 }
 
-.about .name{
-  font-size:24px;
+.contact-title{
+  color:var(--accent);
+  font-size:20px;
   font-weight:bold;
-  color:var(--text);
 }
 
-@media(max-width:768px){
-
-  .about{
-    flex-direction:column;
-    text-align:center;
-  }
-
+.contact-id{
+  color:var(--text);
+  font-size:15px;
 }
 /* =========================
    FOOTER
@@ -260,7 +257,19 @@ footer{
   color:var(--muted);
   font-size:14px;
 }
+/* Contact ボタン時間差 */
 
+#contact .contact-btn:nth-child(1){
+  transition-delay:.1s;
+}
+
+#contact .contact-btn:nth-child(2){
+  transition-delay:.3s;
+}
+
+#contact .contact-btn:nth-child(3){
+  transition-delay:.5s;
+}
 /* =================
    FADE IN
 ================= */
@@ -291,7 +300,6 @@ footer{
   <p class="status">
     依頼受付：<span class="badge">受付中</span>
   </p>
-
   <nav>
     <a href="index.html">Home</a>
     <a href="portfolio.html">Portfolio</a>
@@ -304,31 +312,35 @@ footer{
 
 </header>
 
-<!-- HOME -->
+<!-- CONTACT -->
+<section id="contact">
 
+  <h2 class="fade-in">
+    Contact
+  </h2>
 
-<section id="home">
+ <div class="contact-grid">
 
-  <h2 class="fade-in">About</h2>
+  <a href="https://x.com/IOkms_" target="_blank" class="contact-btn fade-in">
+      <span class="contact-title">X</span>
+      <span class="contact-id">@IOkms_</span>
+    </a>
 
-  <div class="card about fade-in">
-    <img src="icon.png" alt="icon">
-
-    <div>
-      <span class="name">記憶　Web Creator / Mix Engineer</span><br>
-      ネットクリエイター向けにHP制作を行っています。<br>
-      歌い手・配信者・ボカロP・絵師など幅広く対応可能です。
+   <div class="contact-btn fade-in">
+      <span class="contact-title">Discord</span>
+      <span class="contact-id">@ornkms</span>
     </div>
+
+   <a href="mailto:ornkms@gmail.com" class="contact-btn fade-in">
+      <span class="contact-title">Mail</span>
+      <span class="contact-id">ornkms@gmail.com</span>
+    </a>
+
   </div>
 </section>
-
 <footer>
   © 2026 倫理
 </footer>
-<footer>
-  © 2026 倫理
-</footer>
-
 
 <script>
 
@@ -347,8 +359,5 @@ targets.forEach(target=>{
 });
 
 </script>
-
-
-</body>
 </body>
 </html>

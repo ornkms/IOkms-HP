@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>記憶 | Portfolio</title>
+
+<style>
+:root{
+  --bg:#0b1020;
+  --card:#121a33;
+  --text:#ffffff;
+  --muted:#a8b0c2;
+  --accent:#7c5cff;
+  --accent2:#4aa3ff;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  padding:60px 20px;
+  text-align:center;
+  background:radial-gradient(circle at top,#1a2450,#0b1020);
+}
+
+.logo{
+  margin:0;
+}
+
+.logo img{
+  width:180px;
+  height:auto;
+  display:block;
+  margin:0 auto;
+}
+
+header p{
+  margin-top:10px;
+  color:var(--muted);
+}
+
+.status{
+  margin-top:15px;
+}
+
+.badge{
+  color:#7dffb2;
+  font-weight:bold;
+}
+
+/* =========================
+   NAV
+========================= */
+
+nav{
+  margin-top:30px;
+}
+
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  margin:0 12px;
+  transition:.2s;
+}
+
+nav a:hover{
+  color:var(--text);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+h2{
+  font-size:28px;
+  border-left:4px solid var(--accent);
+  padding-left:12px;
+  margin-bottom:40px;
+}
+
+.category-title{
+  font-size:22px;
+  color:var(--accent2);
+  margin:50px 0 20px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.works-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.work-card{
+  background:var(--card);
+  border-radius:12px;
+  padding:12px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.work-card:hover{
+  transform:translateY(-5px);
+}
+
+.work-card img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:10px;
+  display:block;
+  margin-bottom:10px;
+}
+
+.work-card h3{
+  margin:5px 0;
+  color:var(--accent);
+}
+
+.work-card p{
+  margin:5px 0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.work-card a{
+  display:inline-block;
+  margin-top:10px;
+  color:var(--accent2);
+  text-decoration:none;
+}
+
+.work-card a:hover{
+  text-decoration:underline;
+}
+
+/* =========================
+   PROCESS
+========================= */
+
+.process-grid{
+  display:grid;
+  gap:20px;
+}
+
+.process-card{
+  background:var(--card);
+  padding:24px;
+  border-radius:16px;
+  border-left:4px solid var(--accent);
+}
+
+.process-card h3{
+  margin:10px 0;
+  color:var(--text);
+}
+
+.process-card p{
+  color:var(--muted);
+  line-height:1.8;
+  margin:0;
+}
+
+.step{
+  color:var(--accent2);
+  font-size:13px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+.download-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 20px;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  border-radius:10px;
+  transition:.2s;
+}
+
+.download-btn:hover{
+  opacity:.9;
+  transform:translateY(-2px);
+}
+
+/* =========================
+   TERMS
+========================= */
+
+.accordion{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.accordion details{
+  background:var(--card);
+  border-radius:16px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.accordion details:hover{
+  transform:translateY(-2px);
+}
+
+.accordion summary{
+  list-style:none;
+  cursor:pointer;
+  padding:20px 24px;
+  font-weight:bold;
+  font-size:18px;
+  color:var(--text);
+  position:relative;
+}
+
+.accordion summary::-webkit-details-marker{
+  display:none;
+}
+
+.accordion summary::after{
+  content:"+";
+  position:absolute;
+  right:24px;
+  color:var(--accent);
+  font-size:24px;
+  transition:.3s;
+}
+
+.accordion details[open] summary::after{
+  transform:rotate(45deg);
+}
+
+.accordion ul{
+  margin:0;
+  padding:0 24px 24px 45px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.accordion li{
+  margin-bottom:8px;
+}
+
+.warning{
+  color:#ff8a8a;
+}
+
+.warning{
+  color:#ff8a8a;
+}
+
+/* 必読カード */
+.important summary{
+  color:#ffb3b3;
+}
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:var(--muted);
+  font-size:14px;
+}
+/* =================
+   FADE IN
+================= */
+
+.fade-in{
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s ease;
+}
+
+.fade-in.show{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1 class="logo">
+  <img src="logo.png" alt="記憶">
+</h1>
+
+  <p>Web Designer / Creator</p>
+
+  <p class="status">
+    依頼受付：<span class="badge">受付中</span>
+  </p>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="process.html">Process</a>
+    <a href="price.html">Price</a>
+    <a href="faq.html">FAQ</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+</header>
+
+
+
+<!-- TERMS -->
+<section id="terms">
+
+  <h2 class="fade-in">
+    Terms
+  </h2>
+
+  <div class="accordion fade-in">
+
+    <details>
+      <summary>1. 依頼について</summary>
+      <ul>
+        <li>依頼確定は「内容+料金確定」で成立とする</li>
+        <li>DM・相談段階では正式依頼として扱わない</li>
+        <li>制作内容確定後の大幅な変更は追加料金対象</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>2. 料金・支払い</summary>
+      <ul>
+        <li>料金は事前提示の金額を基準とする</li>
+        <li>原則全額前払い</li>
+        <li>入金確認後に制作開始</li>
+        <li>原則銀行振込のみ</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>3. キャンセルについて</summary>
+      <ul>
+        <li>依頼確定後：料金の50%請求</li>
+        <li>制作開始後：料金の100%請求</li>
+        <li>ラフ提出後のキャンセルも制作開始扱いとする</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>4. 修正について</summary>
+      <ul>
+        <li>無料修正：2回まで</li>
+        <li>3回目以降の修正：追加料金対象</li>
+        <li>大幅なデザイン変更（構図・方向性変更）は別案件扱い</li>
+        <li>「おまかせ依頼」の場合でも大幅修正は有料</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>5. 納期について</summary>
+      <ul>
+        <li>納期は依頼内容・混雑状況により変動</li>
+        <li>素材提出・支払い遅延がある場合、納期も後ろ倒しになる</li>
+        <li>特急対応は追加料金対象</li>
+        <li>天災・体調不良等による遅延は事前連絡の上調整</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>6. 素材提供について</summary>
+      <ul>
+        <li>画像・動画(url)・テキスト等の素材は依頼者側で用意</li>
+        <li>提供遅延によるスケジュール遅れは責任を負わないものとする</li>
+        <li>素材の著作権・使用権は依頼者が保証するものとする</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>7. 著作権・使用権</summary>
+      <ul>
+        <li>制作物の著作権は基本的に制作者に帰属（契約内容による）</li>
+        <li>商用利用は事前申告必須</li>
+        <li>無断二次配布・自作発言は禁止</li>
+        <li>ポートフォリオ・実績として公開する場合あり（NGは事前申告）</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>8. ドメイン・サーバーについて</summary>
+      <ul>
+        <li>ドメイン取得・サーバー契約は基本的に依頼者管理</li>
+ 
+        <li>管理情報（ID・PW等）は依頼者が保管責任を持つ</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>9. 公開・実績利用</summary>
+      <ul>
+        <li>制作物は実績として公開する場合あり</li>
+        <li>非公開希望は事前申告必須</li>
+        <li>公開範囲は個別対応</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>10. 禁止事項</summary>
+      <ul>
+        <li>公序良俗に反する用途での使用</li>
+        <li>無断転載・再配布</li>
+        <li>自作発言・作者偽装</li>
+        <li>二次販売・転売</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>11. 免責事項</summary>
+      <ul>
+        <li>納品後のトラブル・運用不備については責任を負わない</li>
+        <li>外部サービス仕様変更による影響は保証対象外</li>
+        <li>データ破損・消失は依頼者側で管理</li>
+      </ul>
+    </details>
+
+    <details class="important">
+  <summary>⚠ Important（必読）</summary>
+      <ul class="warning">
+        <li><b>値下げ交渉不可</b></li>
+        <li><b>途中でのジャンル変更不可</b></li>
+      <li><b>返金を伴うキャンセルが発生した場合、返金先情報のご連絡は7日以内にお願いいたします。
+期限内にご連絡が確認できない場合、返金対応を行えない可能性があります。</b></li>
+        <li><b>返信が5日以上ない場合は案件停止（キャンセル扱い）</b></li>
+      </ul>
+
+    </details>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 倫理
+</footer>
+<script>
+
+const targets = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+targets.forEach(target=>{
+  observer.observe(target);
+});
+
+</script>
+</body>
+</html>
