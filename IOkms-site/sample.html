@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Commission Site</title>
+
+<style>
+:root{
+  --bg:#0b1020;
+  --card:#121a33;
+  --text:#ffffff;
+  --muted:#a8b0c2;
+  --accent:#7c5cff;
+  --accent2:#4aa3ff;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* HEADER */
+header{
+  padding:60px 20px;
+  text-align:center;
+  background: radial-gradient(circle at top, #1a2450, #0b1020);
+}
+
+h1{
+  font-size:40px;
+  margin:0;
+  letter-spacing:2px;
+}
+
+.status{
+  margin-top:10px;
+  font-size:14px;
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:20px;
+  background: var(--accent);
+  font-weight:bold;
+}
+
+/* NAV */
+nav{
+  margin-top:25px;
+}
+
+nav a{
+  color:var(--muted);
+  margin:0 12px;
+  text-decoration:none;
+  transition:0.2s;
+}
+
+nav a:hover{
+  color:white;
+}
+
+nav a[href="#terms"]{
+  color:var(--accent);
+  font-weight:bold;
+}
+
+/* SECTION */
+section{
+  padding:80px 20px;
+  max-width:1000px;
+  margin:auto;
+}
+
+h2{
+  font-size:26px;
+  border-left:4px solid var(--accent);
+  padding-left:10px;
+  margin-bottom:30px;
+}
+
+/* CARDS */
+.card{
+  background: var(--card);
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:20px;
+}
+
+/* SAMPLE GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+img{
+  width:100%;
+  border-radius:10px;
+}
+
+/* PRICE */
+.price{
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  padding:30px;
+  border-radius:12px;
+  text-align:center;
+  font-weight:bold;
+}
+
+/* FAQ / TERMS */
+.accordion details{
+  background: var(--card);
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:12px;
+}
+
+.accordion summary{
+  cursor:pointer;
+  font-weight:bold;
+  outline:none;
+}
+
+.accordion details[open]{
+  border:1px solid var(--accent);
+}
+
+.accordion ul{
+  margin-top:10px;
+  padding-left:20px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.warning li b{
+  color:#ff6b6b;
+}
+
+/* CONTACT */
+.contact a{
+  display:inline-block;
+  margin-right:10px;
+  padding:10px 15px;
+  background:#1b2550;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+  transition:0.2s;
+}
+
+.contact a:hover{
+  background: var(--accent);
+}
+
+/* FOOTER SMALL TEXT */
+.small{
+  font-size:13px;
+  color:var(--muted);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>YOUR NAME</h1>
+  <p class="status">依頼受付：<span class="badge">受付中</span></p>
+
+ <nav>
+  <a href="index.html">Home</a>
+  <a href="works.html">Works</a>
+  <a href="sample.html">Sample</a>
+  <a href="process.html">Process</a>
+  <a href="price.html">Price</a>
+  <a href="faq.html">FAQ</a>
+  <a href="terms.html">Terms</a>
+  <a href="contact.html">Contact</a>
+</nav>
+</header>
+
+
+
+
+<!-- SAMPLE -->
+<section id="sample">
+  <h2>Sample</h2>
+
+  <div class="grid">
+    <div class="card">
+      <img src="sample1.jpg">
+      <p>https://example.com</p>
+    </div>
+
+    <div class="card">
+      <img src="sample2.jpg">
+      <p>https://example.com</p>
+    </div>
+  </div>
+</section>
+</body>
+</html>
